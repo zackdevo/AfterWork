@@ -32,11 +32,56 @@ export class LoadScene extends Phaser.Scene {
             loading_text.setScale(1);
         })
 
-
     }
 
     create() {
+        // ANIMATION MARCHE VERS LE BAS MICHEL
+        this.anims.create({
+            key : 'walkdown',
+            frameRate : 15,
+            repeat : -1,
+            frames : this.anims.generateFrameNames('characters_json', {
+                frames : ['michel130.png','michel131.png', 'michel132.png','michel133.png','michel134.png','michel135.png','michel136.png','michel137.png','michel138.png',]
+            })
+        })
+        // ANIMATION MARCHE VERS LE HAUT
+        this.anims.create({
+            key : 'walkup',
+            frameRate : 15,
+            repeat : -1,
+            frames : this.anims.generateFrameNames('characters_json', {
+                frames : ['michel104.png','michel105.png', 'michel106.png','michel107.png','michel108.png','michel109.png','michel110.png','michel111.png','michel112.png',]
+            })
+        })
+        // ANIMATION MARCHE VERS LA GAUCHE
+        this.anims.create({
+            key : 'walkleft',
+            frameRate : 15,
+            repeat : -1,
+            frames : this.anims.generateFrameNames('characters_json', {
+                frames : ['michel117.png','michel118.png', 'michel119.png','michel120.png','michel121.png','michel122.png','michel123.png','michel124.png','michel125.png']
+            })
+        })
+        // ANIMATION MARCHE VERS LA DROITE
+        this.anims.create({
+            key : 'walkright',
+            frameRate : 15,
+            repeat : -1,
+            frames : this.anims.generateFrameNames('characters_json', {
+                frames : ['michel143.png','michel144.png', 'michel145.png','michel146.png','michel147.png','michel148.png','michel149.png','michel150.png','michel151.png']
+            })
+        })
 
+        // ANIMATION PETITE DANSE 
+        this.anims.create({
+            key : 'dance',
+            frameRate : 10,
+            repeat : -1,
+            frames : this.anims.generateFrameNames('characters_json', {
+                frames : ['michel182.png','michel183.png', 'michel184.png','michel185.png','michel186.png','michel187.png','michel026.png','michel027.png','michel028.png','michel029.png','michel030.png','michel031.png','michel031.png','michel044.png','michel043.png','michel042.png','michel041.png' ]
+            })
+        })
+        // Le Menu se lance
         this.scene.start("menu");
     }
 }

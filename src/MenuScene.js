@@ -4,10 +4,14 @@ export class MenuScene extends Phaser.Scene {
     }
 
     preload() {
+        // OPTIONS SCREEN
         this.load.image('close_btn', './assets/buttons/close_btn.png');
         this.load.image('music_btn', './assets/buttons/musique_btn.png');
         this.load.image('on_btn', './assets/buttons/on_btn.png');
         this.load.image('off_btn', './assets/buttons/off_btn.png');
+        // CREDITS SCREEN
+        this.load.image('devs', './assets/buttons/devs.png');
+        this.load.image('music_credits', './assets/buttons/music_credits.png');
     }
     create() {
 
@@ -18,15 +22,6 @@ export class MenuScene extends Phaser.Scene {
         let options_btn = this.add.image(this.game.renderer.width / 2, (this.game.renderer.height / 2) + 80, "options").setDepth(1).setScale(0.5);
         let credits_btn = this.add.image(this.game.renderer.width / 2, options_btn.y + 50, "credits").setDepth(1).setScale(0.5);
 
-        // Petite animation pour le perso 
-        this.anims.create({
-            key : 'walkdown',
-            frameRate : 15,
-            repeat : -1,
-            frames : this.anims.generateFrameNames('characters_json', {
-                frames : ['michel130.png','michel131.png', 'michel132.png','michel133.png','michel134.png','michel135.png','michel136.png','michel137.png','michel138.png',]
-            })
-        })
         // On créer le perso qui apparait au Hover des boutons et on le rend invisible wow
         let playerHover = this.add.sprite(this.game.renderer.width / 4, options_btn.y + 50, 'characters_json', 'michel130.png');
         playerHover.setScale(1).setVisible(false);
@@ -72,7 +67,7 @@ export class MenuScene extends Phaser.Scene {
         })
         // Quand on clique le bouton options
         options_btn.on('pointerup', () => {
-            this.scene.launch('options', music);
+            this.scene.launch('options', {music, playerHover});
         })
 
         // ######## BOUTON CREDITS #########
@@ -90,7 +85,7 @@ export class MenuScene extends Phaser.Scene {
         })
         // Quand on clique le bouton options
         credits_btn.on('pointerup', () => {
-            console.log("LET ME IIIIIIN THE CREDITS !!!");
+            this.scene.launch('credits');
         })
     }
 }

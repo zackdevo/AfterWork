@@ -6,7 +6,7 @@ export class OptionsScene extends Phaser.Scene {
     }
 
     init(data){
-        this.music = data;
+        this.music = data.music;
     }
 
     create(){
@@ -16,6 +16,8 @@ export class OptionsScene extends Phaser.Scene {
         let close_btn = this.add.image(this.game.renderer.width / 2 + 200 , this.game.renderer.height - 100, 'close_btn').setScale(1); // BTN RETOUR
         let on_btn = this.add.image(music_btn.x - 100, music_btn.y + 75, "on_btn").setScale(0.5);
         let off_btn = this.add.image(music_btn.x + 100, music_btn.y + 75, "off_btn").setScale(0.5);
+        let playerHover = this.add.sprite(this.game.renderer.width / 4, on_btn.y + 50, 'characters_json', 'michel130.png');
+        playerHover.setVisible(false);
 
         // PARAMETRAGE BUTTON RETOUR
         close_btn.setScale(0.5);
@@ -24,17 +26,32 @@ export class OptionsScene extends Phaser.Scene {
         close_btn.on('pointerup', () => {
             this.scene.stop('options');
         } )
-        
-        console.log(this.music.manager.context.state);
-        console.log(this.music);
         on_btn.setInteractive();
         off_btn.setInteractive();
 
         on_btn.on('pointerup', () => {
             this.music.resume();    
         })
+        on_btn.on('pointerover', () => {
+            playerHover.setVisible(true);
+            playerHover.play("walkdown");
+            playerHover.y = on_btn.y - 10;
+            playerHover.x = on_btn.x - 50;
+        })
+        on_btn.on('pointerout', () => {
+            playerHover.setVisible(false);
+        })
         off_btn.on('pointerup', () => {
             this.music.pause();
+        })
+        off_btn.on('pointerover', () => {
+            playerHover.setVisible(true);
+            playerHover.play("walkdown");
+            playerHover.y = off_btn.y - 10;
+            playerHover.x = off_btn.x - 50;
+        })
+        off_btn.on('pointerout', () => {
+            playerHover.setVisible(false);
         })
     }
 }
