@@ -1,0 +1,1 @@
+{"version":3,"sources":["Scene2.js"],"names":["Scene2","Phaser","Scene"],"mappings":";;;;;;;;;;;;;;;;;;IAAMA;;;;;AACF,oBAAc;AAAA;;AAAA,6BACJ,UADI;AAEb;;;EAHgBC,MAAM,CAACC","file":"Scene2.9a7ec757.js","sourceRoot":"..","sourcesContent":["class Scene2 extends Phaser.Scene {\r\n    constructor() {\r\n        super(\"playGame\")\r\n    }\r\n}"]}
