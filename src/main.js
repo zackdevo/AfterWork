@@ -1,15 +1,23 @@
 /** @type {import("../typings/phaser")} */
 
 import { CreditsScene } from "./CreditsScene";
+import { GameScene } from "./GameScene";
 import { LoadScene } from "./LoadScene";
 import { MenuScene } from "./MenuScene";
+import { OpeningCutscene } from "./OpeningCutscene";
 import { OptionsScene } from "./OptionsScene";
 
 const config = {
     width: 800,
     height: 600,
     type: Phaser.AUTO,
-    scene: [LoadScene, MenuScene,OptionsScene, CreditsScene],
+    scene: [LoadScene, MenuScene,OptionsScene, CreditsScene,OpeningCutscene, GameScene],
+    physics: {
+        default: "arcade",
+        arcade: {
+            debug: true,
+        }
+    },
     render: {
         pixelArt: true
     },

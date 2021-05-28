@@ -71,7 +71,6 @@ export class LoadScene extends Phaser.Scene {
                 frames : ['michel143.png','michel144.png', 'michel145.png','michel146.png','michel147.png','michel148.png','michel149.png','michel150.png','michel151.png']
             })
         })
-
         // ANIMATION PETITE DANSE 
         this.anims.create({
             key : 'dance',
@@ -79,6 +78,17 @@ export class LoadScene extends Phaser.Scene {
             repeat : -1,
             frames : this.anims.generateFrameNames('characters_json', {
                 frames : ['michel182.png','michel183.png', 'michel184.png','michel185.png','michel186.png','michel187.png','michel026.png','michel027.png','michel028.png','michel029.png','michel030.png','michel031.png','michel031.png','michel044.png','michel043.png','michel042.png','michel041.png' ]
+            })
+        })
+
+        // ANIMATION REVEIL
+        this.anims.create({
+            key : 'wakeup',
+            delay: 2000,
+            frameRate : 10,
+            repeat : 0,
+            frames : this.anims.generateFrameNames('characters_json', {
+                frames : ['michel265.png','michel265.png','michel264.png', 'michel264.png','michel263.png','michel263.png','michel262.png','michel262.png','michel261.png','michel261.png','michel260.png','michel260.png']
             })
         })
         // Le Menu se lance

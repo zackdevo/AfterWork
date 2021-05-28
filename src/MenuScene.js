@@ -49,7 +49,7 @@ export class MenuScene extends Phaser.Scene {
         })
         // Quand on clique le bouton jouer
         play_btn.on('pointerup', () => {
-            console.log("LET ME IIIIIIN");
+            this.scene.start('cutscene');
         })
 
         // ######## BOUTON OPTIONS #########
