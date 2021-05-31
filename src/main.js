@@ -6,12 +6,13 @@ import { LoadScene } from "./LoadScene";
 import { MenuScene } from "./MenuScene";
 import { OpeningCutscene } from "./OpeningCutscene";
 import { OptionsScene } from "./OptionsScene";
+import { PauseMenu } from "./PauseMenu";
 
 const config = {
     width: 800,
     height: 600,
     type: Phaser.AUTO,
-    scene: [LoadScene, MenuScene,OptionsScene, CreditsScene,OpeningCutscene, GameScene],
+    scene: [LoadScene, MenuScene,OptionsScene, CreditsScene,OpeningCutscene, GameScene, PauseMenu],
     physics: {
         default: "arcade",
         arcade: {
@@ -27,7 +28,6 @@ const config = {
         width: 800,
         height: 600
     },
-    disableWebAudio: true,
 }
 
 var game = new Phaser.Game(config);

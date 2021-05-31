@@ -1,3 +1,5 @@
+import { Game } from "phaser";
+
 export class GameScene extends Phaser.Scene {
     constructor(){
         super("game")
@@ -10,7 +12,6 @@ export class GameScene extends Phaser.Scene {
     create(){
         this.michel = this.physics.add.sprite(this.game.renderer.width/2,this.game.renderer.height/2, 'characters_json', 'michel260.png');
         this.keyboard = this.input.keyboard.addKeys('UP,DOWN,LEFT,RIGHT');
-        
         // Hitbox de michel yea
         this.michel.setSize(45,60);
         this.michel.setCollideWorldBounds(true);
@@ -44,7 +45,6 @@ export class GameScene extends Phaser.Scene {
         }
 
         // ANIMATIONS POUR MULTIDIRECTION
-
         if (this.michel.body.velocity.x > 0 ) { // Si on bouge vers la droite, l'animation vers la droite se joue et ainsi de suite
             this.michel.play("walkright", true);
         } else if (this.michel.body.velocity.x < 0 ) {
@@ -56,5 +56,13 @@ export class GameScene extends Phaser.Scene {
         } else if (this.michel.body.velocity.y === 0 && this.michel.body.velocity.x === 0) { // Si on ne bouge plus, l'animation s'arrete 
             this.michel.anims.stop();
         }
+        
+        // METTRE EN PAUSE
+        var keyObj = this.input.keyboard.addKey('P');
+         if (keyObj.isDown === true) {
+             console.log('Switch scenes');
+             this.scene.pause();
+             this.scene.launch('pause');
+         }
     }   
 }

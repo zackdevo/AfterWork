@@ -16,5 +16,8 @@
   "devDependencies": {
     "typescript": "^4.2.4"
   },
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "phaser": "^3.55.2"
+  }
 }

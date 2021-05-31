@@ -3,7 +3,7 @@ export class LoadScene extends Phaser.Scene {
         super("load")
     }
     preload() {
-        // On charge tout nos assests Images, SpriteSheets, audio dont on aura besoin pour cette scene
+        // On charge tout nos assests Images, SpriteSheets, audio dont on aura besoin pour le jeu
         this.load.image("menu_bg", "./assets/title_bg.jpg");
         this.load.image("options", "./assets/buttons/options_btn.png");
         this.load.image("play", "./assets/buttons/play_btn.png");
@@ -13,6 +13,8 @@ export class LoadScene extends Phaser.Scene {
             frameWidth: 64,
             frameHeight: 64
         })
+        this.load.image('pause', './assets/buttons/pause_btn.png');
+        this.load.image('resume', './assets/buttons/resume_btn.png');
         this.load.atlas("characters_json", "./assets/characters.png","./assets/characters.json", Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
         this.load.json('characters', "./assets/characters.json");
         this.load.audio("music", "./assets/audio/Atmosphere.mp3");
