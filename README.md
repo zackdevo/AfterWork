@@ -1,4 +1,4 @@
-# Lost | Projet AfterWorl
+# Lost | Projet AfterWork
 
 Lost est un jeu en 2D Top-Down codé en Phaser 3
 
