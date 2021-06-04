@@ -4,32 +4,32 @@ export class LoadScene extends Phaser.Scene {
     }
     preload() {
         // On charge tout nos assests Images, SpriteSheets, audio dont on aura besoin pour le jeu
-        this.load.image("menu_bg", "./assets/title_bg.jpg");
-        this.load.image("options", "./assets/buttons/options_btn.png");
-        this.load.image("play", "./assets/buttons/play_btn.png");
-        this.load.image("credits", "./assets/buttons/credit_btn.png");
-        this.load.image("title", "./assets/game_title.png");
-        this.load.spritesheet("characters", "./assets/characters.png", {
+        this.load.image("menu_bg", "./dist/assets/title_bg.jpg");
+        this.load.image("options", "./dist/assets/buttons/options_btn.png");
+        this.load.image("play", "./dist/assets/buttons/play_btn.png");
+        this.load.image("credits", "./dist/assets/buttons/credit_btn.png");
+        this.load.image("title", "./dist/assets/game_title.png");
+        this.load.spritesheet("characters", "./dist/assets/characters.png", {
             frameWidth: 64,
             frameHeight: 64
         })
         // OPTIONS SCREEN
-        this.load.image('close_btn', './assets/buttons/close_btn.png');
-        this.load.image('music_btn', './assets/buttons/musique_btn.png');
-        this.load.image('on_btn', './assets/buttons/on_btn.png');
-        this.load.image('off_btn', './assets/buttons/off_btn.png');
+        this.load.image('close_btn', './dist/assets/buttons/close_btn.png');
+        this.load.image('music_btn', './dist/assets/buttons/musique_btn.png');
+        this.load.image('on_btn', './dist/assets/buttons/on_btn.png');
+        this.load.image('off_btn', './dist/assets/buttons/off_btn.png');
         // CREDITS SCREEN
-        this.load.image('devs', './assets/buttons/devs.png');
-        this.load.image('music_credits', './assets/buttons/music_credits.png');
-        this.load.image('pause', './assets/buttons/pause_btn.png');
-        this.load.image('resume', './assets/buttons/resume_btn.png');
-        this.load.atlas("characters_json", "./assets/characters.png","./assets/characters.json", Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
-        this.load.json('characters', "./assets/characters.json");
-        this.load.audio("music", "./assets/audio/Atmosphere.mp3");
+        this.load.image('devs', './dist/assets/buttons/devs.png');
+        this.load.image('music_credits', './dist/assets/buttons/music_credits.png');
+        this.load.image('pause', './dist/assets/buttons/pause_btn.png');
+        this.load.image('resume', './dist/assets/buttons/resume_btn.png');
+        this.load.atlas("characters_json", "./dist/assets/characters.png","./dist/assets/characters.json", Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+        this.load.json('characters', "./dist/assets/characters.json");
+        this.load.audio("music", "./dist/assets/audio/Atmosphere.mp3");
 
         // TOUT CE QUI CONCERNE LA MAP --
-        this.load.image('terrain', './assets/map/terrain_atlas.png');
-        this.load.tilemapTiledJSON('map', './assets/map/map.json');
+        this.load.image('terrain', './dist/assets/map/terrain_atlas.png');
+        this.load.tilemapTiledJSON('map', './dist/assets/map/map.json');
         // Creation de la barre de chargement 
 
         let loadingBar = this.add.graphics({
