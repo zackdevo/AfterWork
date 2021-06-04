@@ -2,13 +2,12 @@
   "name": "afterwork",
   "version": "1.0.0",
   "description": "phaser game 2d",
-  "main": "index.html",
+  "main": "src/main.js",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "src/main.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
