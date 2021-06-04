@@ -13,11 +13,23 @@ export class LoadScene extends Phaser.Scene {
             frameWidth: 64,
             frameHeight: 64
         })
+        // OPTIONS SCREEN
+        this.load.image('close_btn', './assets/buttons/close_btn.png');
+        this.load.image('music_btn', './assets/buttons/musique_btn.png');
+        this.load.image('on_btn', './assets/buttons/on_btn.png');
+        this.load.image('off_btn', './assets/buttons/off_btn.png');
+        // CREDITS SCREEN
+        this.load.image('devs', './assets/buttons/devs.png');
+        this.load.image('music_credits', './assets/buttons/music_credits.png');
         this.load.image('pause', './assets/buttons/pause_btn.png');
         this.load.image('resume', './assets/buttons/resume_btn.png');
         this.load.atlas("characters_json", "./assets/characters.png","./assets/characters.json", Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
         this.load.json('characters', "./assets/characters.json");
         this.load.audio("music", "./assets/audio/Atmosphere.mp3");
+
+        // TOUT CE QUI CONCERNE LA MAP --
+        this.load.image('terrain', './assets/map/terrain_atlas.png');
+        this.load.tilemapTiledJSON('map', './assets/map/map.json');
         // Creation de la barre de chargement 
 
         let loadingBar = this.add.graphics({
@@ -30,8 +42,8 @@ export class LoadScene extends Phaser.Scene {
         this.load.on("progress", (percent) => {
             loadingBar.fillRect(0, this.game.renderer.height / 2, this.game.renderer.width * percent, 50);
             // TEXTE LOADING POUR FAIRE STYLE TU CONNAIS 
-            let loading_text = this.add.text(10, 10, "LOADING...");
-            loading_text.setScale(1);
+            let loading_text = this.add.text(320, 370, "LOADING...");
+            loading_text.setScale(2);
         })
 
     }

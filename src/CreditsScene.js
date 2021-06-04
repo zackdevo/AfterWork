@@ -14,6 +14,6 @@ export class CreditsScene extends Phaser.Scene {
         // RETOURNER AU MENU
         close_btn.on('pointerup', () => {
             this.scene.stop('credits');
-        } )
+        })
     }
 }

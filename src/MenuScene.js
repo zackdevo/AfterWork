@@ -4,20 +4,13 @@ export class MenuScene extends Phaser.Scene {
     }
 
     preload() {
-        // OPTIONS SCREEN
-        this.load.image('close_btn', './assets/buttons/close_btn.png');
-        this.load.image('music_btn', './assets/buttons/musique_btn.png');
-        this.load.image('on_btn', './assets/buttons/on_btn.png');
-        this.load.image('off_btn', './assets/buttons/off_btn.png');
-        // CREDITS SCREEN
-        this.load.image('devs', './assets/buttons/devs.png');
-        this.load.image('music_credits', './assets/buttons/music_credits.png');
+        
     }
     create() {
 
         // AFFICHAGE DU MENU APRES L'ECRAN DE CHARGEMENT
         this.add.image(0, 0, "menu_bg").setDepth(0).setOrigin(0, 0); // BACKGROUND
-        this.add.image(this.game.renderer.width / 2, this.game.renderer.height / 4, "title").setDepth(1).setScale(0.7); // TITRE DU JEU
+        this.add.image(this.game.renderer.width / 2 + 20, this.game.renderer.height / 4, "title").setDepth(1).setScale(0.9); // TITRE DU JEU
         let play_btn = this.add.image(this.game.renderer.width / 2, this.game.renderer.height / 2, "play").setDepth(1).setScale(0.8);
         let options_btn = this.add.image(this.game.renderer.width / 2, (this.game.renderer.height / 2) + 80, "options").setDepth(1).setScale(0.5);
         let credits_btn = this.add.image(this.game.renderer.width / 2, options_btn.y + 50, "credits").setDepth(1).setScale(0.5);
@@ -49,7 +42,7 @@ export class MenuScene extends Phaser.Scene {
         })
         // Quand on clique le bouton jouer
         play_btn.on('pointerup', () => {
-            this.scene.start('cutscene');
+            this.scene.start('cutscene', {music});
         })
 
         // ######## BOUTON OPTIONS #########
@@ -85,6 +78,7 @@ export class MenuScene extends Phaser.Scene {
         })
         // Quand on clique le bouton options
         credits_btn.on('pointerup', () => {
+            console.log('kek');
             this.scene.launch('credits');
         })
     }

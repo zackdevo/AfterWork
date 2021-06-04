@@ -12,7 +12,7 @@ const config = {
     width: 800,
     height: 600,
     type: Phaser.AUTO,
-    scene: [LoadScene, MenuScene,OptionsScene, CreditsScene,OpeningCutscene, GameScene, PauseMenu],
+    scene: [LoadScene, MenuScene, OptionsScene,OpeningCutscene, GameScene, CreditsScene ,PauseMenu],
     physics: {
         default: "arcade",
         arcade: {
