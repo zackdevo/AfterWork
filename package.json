@@ -1,0 +1,22 @@
+{
+  "name": "afterwork",
+  "version": "1.0.0",
+  "description": "phaser game 2d",
+  "main": "index.html",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zackdevo/AfterWork.git"
+  },
+  "author": "zackdevo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zackdevo/AfterWork/issues"
+  },
+  "homepage": "https://github.com/zackdevo/AfterWork#readme"
+}
