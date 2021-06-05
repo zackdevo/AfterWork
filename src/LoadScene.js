@@ -29,7 +29,7 @@ export class LoadScene extends Phaser.Scene {
 
         // TOUT CE QUI CONCERNE LA MAP --
         this.load.image('terrain', './dist/assets/map/terrain_atlas.png');
-        this.load.tilemapTiledJSON('mainMap', './dist/assets/map/mainMap.json');
+        this.load.tilemapTiledJSON('map', './dist/assets/map/map.json');
         // Creation de la barre de chargement 
 
         let loadingBar = this.add.graphics({
