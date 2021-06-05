@@ -8,33 +8,124 @@ export class GameScene extends Phaser.Scene {
     }
 
     create(){
-        this.michel = this.physics.add.sprite(this.game.renderer.width/2,this.game.renderer.height/2, 'characters_json', 'michel260.png');
+        this.michel = this.physics.add.sprite(650,1945, 'characters_json', 'michel260.png');
         this.keyboard = this.input.keyboard.addKeys('UP,DOWN,LEFT,RIGHT');
         // Hitbox de michel yea
         this.michel.setSize(45,60);
         this.michel.setCollideWorldBounds(true);
 
+        //Custom Property pour le joueur 
+        this.michel.memories = 0;
 
-        let map = this.add.tilemap('map');
-
+        let map = this.add.tilemap('mainMap');
         let terrain = map.addTilesetImage("terrain_atlas", "terrain");
-
         // CALQUE DE LA MAP
         let botLayer = map.createLayer("bot", [terrain], 0, 0).setDepth(-1);
         let topLayer = map.createLayer("top", [terrain], 0, 0);
 
+        // PANNEAU DE MESSAGES
+
         // COLLISIONS
         this.physics.add.collider(this.michel, topLayer);
         topLayer.setCollisionByProperty({collides:true});
-
-        // EVENTS EN COLLISIONS 
-
-        topLayer.setTileLocationCallback(13,8, 1,1, () => {
-            console.log('ouch !');
-
-            topLayer.setTileLocationCallback(13,8, 1,1, null);
-
-        })
+        // EVENTS EN COLLISIONS COLLECT MEMORIES
+        // SUR LES 5 SOUVENIRS
+            // 1ER
+            topLayer.setTileLocationCallback(7,62, 1,1, () => {
+                if (this.michel.memories === 0) {
+                    console.log("I remember now");
+                    this.michel.memories += 1;
+                } else if (this.michel.memories === 1) {
+                    console.log("2nd Memory");
+                    this.michel.memories += 1;
+                } else if (this.michel.memories === 2) {
+                    console.log("3rd Memory");
+                    this.michel.memories += 1;
+                } else if (this.michel.memories === 3) {
+                    console.log("4th Memory");
+                    this.michel.memories += 1;
+                } else if (this.michel.memories === 4) {
+                    console.log("5th Memory");
+                }
+                topLayer.setTileLocationCallback(7,62, 1,1, null);
+            });
+            // SECOND
+            topLayer.setTileLocationCallback(30,62, 1,1, () => {
+                if (this.michel.memories === 0) {
+                    console.log("I remember now");
+                    this.michel.memories += 1;
+                } else if (this.michel.memories === 1) {
+                    console.log("2nd Memory");
+                    this.michel.memories += 1;
+                } else if (this.michel.memories === 2) {
+                    console.log("3rd Memory");
+                    this.michel.memories += 1;
+                } else if (this.michel.memories === 3) {
+                    console.log("4th Memory");
+                    this.michel.memories += 1;
+                } else if (this.michel.memories === 4) {
+                    console.log("5th Memory");
+                }
+                topLayer.setTileLocationCallback(30,62, 1,1, null);
+            });
+            // TROISIEME
+            topLayer.setTileLocationCallback(20,45, 1,1, () => {
+                if (this.michel.memories === 0) {
+                    console.log("I remember now");
+                    this.michel.memories += 1;
+                } else if (this.michel.memories === 1) {
+                    console.log("2nd Memory");
+                    this.michel.memories += 1;
+                } else if (this.michel.memories === 2) {
+                    console.log("3rd Memory");
+                    this.michel.memories += 1;
+                } else if (this.michel.memories === 3) {
+                    console.log("4th Memory");
+                    this.michel.memories += 1;
+                } else if (this.michel.memories === 4) {
+                    console.log("5th Memory");
+                }
+                topLayer.setTileLocationCallback(20,45, 1,1, null);
+            });
+            // QUATRIEME
+            topLayer.setTileLocationCallback(10,34, 1,1, () => {
+                if (this.michel.memories === 0) {
+                    console.log("I remember now");
+                    this.michel.memories += 1;
+                } else if (this.michel.memories === 1) {
+                    console.log("2nd Memory");
+                    this.michel.memories += 1;
+                } else if (this.michel.memories === 2) {
+                    console.log("3rd Memory");
+                    this.michel.memories += 1;
+                } else if (this.michel.memories === 3) {
+                    console.log("4th Memory");
+                    this.michel.memories += 1;
+                } else if (this.michel.memories === 4) {
+                    console.log("5th Memory");
+                }
+                topLayer.setTileLocationCallback(10,34, 1,1, null);
+            });
+            // CINQUIEME
+            topLayer.setTileLocationCallback(28,32, 1,1, () => {
+                if (this.michel.memories === 0) {
+                    console.log("I remember now");
+                    this.michel.memories += 1;
+                } else if (this.michel.memories === 1) {
+                    console.log("2nd Memory");
+                    this.michel.memories += 1;
+                } else if (this.michel.memories === 2) {
+                    console.log("3rd Memory");
+                    this.michel.memories += 1;
+                } else if (this.michel.memories === 3) {
+                    console.log("4th Memory");
+                    this.michel.memories += 1;
+                } else if (this.michel.memories === 4) {
+                    console.log("5th Memory");
+                }
+                topLayer.setTileLocationCallback(28,32, 1,1, null);
+            });
+        
 
         // CAMERA SUIT LE JOUEUR
 
@@ -44,18 +135,17 @@ export class GameScene extends Phaser.Scene {
 
         this.physics.world.setBounds(0,0, map.widthInPixels, map.heightInPixels);
 
-
     }
 
     update(){
         // ###### DEPLACEMENT JOUEUR #######
         // marche vers la gauche 
         if (this.keyboard.LEFT.isDown === true) {
-            this.michel.setVelocityX(-100);
+            this.michel.setVelocityX(-150);
         }
         // vers la droite
         if (this.keyboard.RIGHT.isDown === true) {
-            this.michel.setVelocityX(+100);
+            this.michel.setVelocityX(+150);
         }
         // RESET SI ON APPUIE SUR NI GAUCHE NI DROITE
         if (this.keyboard.LEFT.isUp === true && this.keyboard.RIGHT.isUp === true ) {
@@ -63,11 +153,11 @@ export class GameScene extends Phaser.Scene {
         }
         // VERS LE HAUT
         if (this.keyboard.UP.isDown === true) {
-            this.michel.setVelocityY(-100);
+            this.michel.setVelocityY(-150);
         }
         // VERS LE BAS
         if (this.keyboard.DOWN.isDown === true) {
-            this.michel.setVelocityY(+100);
+            this.michel.setVelocityY(+150);
 
             // FAIRE RAYTRACING DANS LES OPTIONS
         }
@@ -92,7 +182,6 @@ export class GameScene extends Phaser.Scene {
         // METTRE EN PAUSE
         var keyObj = this.input.keyboard.addKey('P');
          if (keyObj.isDown === true) {
-             console.log('Switch scenes');
              this.music.pause();
              this.scene.pause();
              this.scene.launch('pause', this.music);
