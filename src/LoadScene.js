@@ -48,7 +48,7 @@ export class LoadScene extends Phaser.Scene {
             loadingBar.fillRect(0, this.game.renderer.height / 2, this.game.renderer.width * percent, 50);
             // TEXTE LOADING POUR FAIRE STYLE TU CONNAIS 
             let loading_text = this.add.text(320, 370, "LOADING...");
-            loading_text.setScale(2);
+            loading_text.setScale(1.5);
         })
 
     }

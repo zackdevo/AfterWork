@@ -4,7 +4,7 @@ export class SecondMemory extends Phaser.Scene {
     }
 
     create(){
-      let dialogue =  this.add.image(this.game.renderer.width / 2, this.game.renderer.height - 150, "second_memory");
+      let dialogue =  this.add.image(this.game.renderer.width / 2, this.game.renderer.height - 180, "second_memory");
       dialogue.setScale(0.6);
     }
     update(){
