@@ -30,8 +30,13 @@ export class LoadScene extends Phaser.Scene {
         // TOUT CE QUI CONCERNE LA MAP --
         this.load.image('terrain', './dist/assets/map/terrain_atlas.png');
         this.load.tilemapTiledJSON('mainMap', './dist/assets/map/mainMap.json');
+        // DIALOGUES
+        this.load.image('first_memory', "./dist/assets/dialogues/first_memory.png");
+        this.load.image('second_memory', "./dist/assets/dialogues/second_memory.png");
+        this.load.image('third_memory', "./dist/assets/dialogues/third_memory.png");
+        this.load.image('fourth_memory', "./dist/assets/dialogues/fourth_memory.png");
+        this.load.image('fifth_memory', "./dist/assets/dialogues/fifth_memory.png");
         // Creation de la barre de chargement 
-
         let loadingBar = this.add.graphics({
             fillStyle: {
                 color: 0xffffff // Couleur de la barre de chargement
@@ -105,6 +110,7 @@ export class LoadScene extends Phaser.Scene {
                 frames : ['michel265.png','michel265.png','michel264.png', 'michel264.png','michel263.png','michel263.png','michel262.png','michel262.png','michel261.png','michel261.png','michel260.png','michel260.png']
             })
         })
+
         // Le Menu se lance
         this.scene.start("menu");
     }

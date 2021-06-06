@@ -23,8 +23,6 @@ export class GameScene extends Phaser.Scene {
         let botLayer = map.createLayer("bot", [terrain], 0, 0).setDepth(-1);
         let topLayer = map.createLayer("top", [terrain], 0, 0);
 
-        // PANNEAU DE MESSAGES
-
         // COLLISIONS
         this.physics.add.collider(this.michel, topLayer);
         topLayer.setCollisionByProperty({collides:true});
@@ -33,108 +31,129 @@ export class GameScene extends Phaser.Scene {
             // 1ER
             topLayer.setTileLocationCallback(7,62, 1,1, () => {
                 if (this.michel.memories === 0) {
-                    console.log("I remember now");
                     this.michel.memories += 1;
+                    this.scene.pause();
+                    this.scene.launch('first_memory');
                 } else if (this.michel.memories === 1) {
-                    console.log("2nd Memory");
                     this.michel.memories += 1;
+                    this.scene.pause();
+                    this.scene.launch('second_memory');
                 } else if (this.michel.memories === 2) {
-                    console.log("3rd Memory");
                     this.michel.memories += 1;
+                    this.scene.pause();
+                    this.scene.launch('third_memory');
                 } else if (this.michel.memories === 3) {
-                    console.log("4th Memory");
                     this.michel.memories += 1;
+                    this.scene.pause();
+                    this.scene.launch('fourth_memory');
                 } else if (this.michel.memories === 4) {
-                    console.log("5th Memory");
+                    this.scene.pause();
+                    this.scene.launch('fifth_memory');
                 }
                 topLayer.setTileLocationCallback(7,62, 1,1, null);
             });
             // SECOND
             topLayer.setTileLocationCallback(30,62, 1,1, () => {
                 if (this.michel.memories === 0) {
-                    console.log("I remember now");
                     this.michel.memories += 1;
+                    this.scene.pause();
+                    this.scene.launch('first_memory');
                 } else if (this.michel.memories === 1) {
-                    console.log("2nd Memory");
                     this.michel.memories += 1;
+                    this.scene.pause();
+                    this.scene.launch('second_memory');
                 } else if (this.michel.memories === 2) {
-                    console.log("3rd Memory");
                     this.michel.memories += 1;
+                    this.scene.pause();
+                    this.scene.launch('third_memory');
                 } else if (this.michel.memories === 3) {
-                    console.log("4th Memory");
                     this.michel.memories += 1;
+                    this.scene.pause();
+                    this.scene.launch('fourth_memory');
                 } else if (this.michel.memories === 4) {
-                    console.log("5th Memory");
+                    this.scene.pause();
+                    this.scene.launch('fifth_memory');
                 }
                 topLayer.setTileLocationCallback(30,62, 1,1, null);
             });
             // TROISIEME
             topLayer.setTileLocationCallback(20,45, 1,1, () => {
                 if (this.michel.memories === 0) {
-                    console.log("I remember now");
                     this.michel.memories += 1;
+                    this.scene.pause();
+                    this.scene.launch('first_memory');
                 } else if (this.michel.memories === 1) {
-                    console.log("2nd Memory");
                     this.michel.memories += 1;
+                    this.scene.pause();
+                    this.scene.launch('second_memory');
                 } else if (this.michel.memories === 2) {
-                    console.log("3rd Memory");
                     this.michel.memories += 1;
+                    this.scene.pause();
+                    this.scene.launch('third_memory');
                 } else if (this.michel.memories === 3) {
-                    console.log("4th Memory");
                     this.michel.memories += 1;
+                    this.scene.pause();
+                    this.scene.launch('fourth_memory');
                 } else if (this.michel.memories === 4) {
-                    console.log("5th Memory");
+                    this.scene.pause();
+                    this.scene.launch('fifth_memory');
                 }
                 topLayer.setTileLocationCallback(20,45, 1,1, null);
             });
             // QUATRIEME
             topLayer.setTileLocationCallback(10,34, 1,1, () => {
                 if (this.michel.memories === 0) {
-                    console.log("I remember now");
                     this.michel.memories += 1;
+                    this.scene.pause();
+                    this.scene.launch('first_memory');
                 } else if (this.michel.memories === 1) {
-                    console.log("2nd Memory");
                     this.michel.memories += 1;
+                    this.scene.pause();
+                    this.scene.launch('second_memory');
                 } else if (this.michel.memories === 2) {
-                    console.log("3rd Memory");
                     this.michel.memories += 1;
+                    this.scene.pause();
+                    this.scene.launch('third_memory');
                 } else if (this.michel.memories === 3) {
-                    console.log("4th Memory");
                     this.michel.memories += 1;
+                    this.scene.pause();
+                    this.scene.launch('fourth_memory');
                 } else if (this.michel.memories === 4) {
-                    console.log("5th Memory");
+                    this.scene.pause();
+                    this.scene.launch('fifth_memory');
                 }
                 topLayer.setTileLocationCallback(10,34, 1,1, null);
             });
             // CINQUIEME
             topLayer.setTileLocationCallback(28,32, 1,1, () => {
                 if (this.michel.memories === 0) {
-                    console.log("I remember now");
                     this.michel.memories += 1;
+                    this.scene.pause();
+                    this.scene.launch('first_memory');
                 } else if (this.michel.memories === 1) {
-                    console.log("2nd Memory");
                     this.michel.memories += 1;
+                    this.scene.pause();
+                    this.scene.launch('second_memory');
                 } else if (this.michel.memories === 2) {
-                    console.log("3rd Memory");
                     this.michel.memories += 1;
+                    this.scene.pause();
+                    this.scene.launch('third_memory');
                 } else if (this.michel.memories === 3) {
-                    console.log("4th Memory");
                     this.michel.memories += 1;
+                    this.scene.pause();
+                    this.scene.launch('fourth_memory');
                 } else if (this.michel.memories === 4) {
-                    console.log("5th Memory");
+                    this.scene.pause();
+                    this.scene.launch('fifth_memory');
                 }
                 topLayer.setTileLocationCallback(28,32, 1,1, null);
             });
         
 
         // CAMERA SUIT LE JOUEUR
-
         this.cameras.main.startFollow(this.michel);
-
         // DELIMITER LES BORDURES DU JEU PAR RAPPORT A LA MAP
-
         this.physics.world.setBounds(0,0, map.widthInPixels, map.heightInPixels);
-
     }
 
     update(){
