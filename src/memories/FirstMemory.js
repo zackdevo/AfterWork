@@ -4,7 +4,7 @@ export class FirstMemory extends Phaser.Scene {
     }
 
     create(){
-      let dialogue =  this.add.image(this.game.renderer.width / 2, this.game.renderer.height - 100, "first_memory");
+      let dialogue =  this.add.image(this.game.renderer.width / 2, this.game.renderer.height - 150, "first_memory");
       dialogue.setScale(0.6);
     }
     update(){
