@@ -1,3 +1,43 @@
-.game-div {
-    display: flex;
+body {
+    background: linear-gradient(to right, #434343, #000000);
+}  
+html {
+    scroll-behavior: smooth;
+} 
+
+.intro {
+    font-size: 1.5rem;
+}
+.first-intro {
+    margin-top: 300px;
+    padding-top:150px;
+    padding-bottom:150px;
+}
+
+.keys{
+    text-align: center;
+    width: 220px;
+    height: 150px;
+}
+.objective {
+    padding:  0;
+}
+.obj{
+    padding: 0;
+}
+.mem {
+    padding:0;
+}
+.button {
+    transition: 500ms;
+    color : white;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius:25px 25px 25px 25px;
+    background-color: rgb(20, 19, 19);
+}
+.button:hover {
+    color: black;
+    text-decoration: none;
+    background-color: white;
 }
