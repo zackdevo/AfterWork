@@ -9,20 +9,38 @@ export class GameScene extends Phaser.Scene {
 
     create(){
         this.michel = this.physics.add.sprite(650,1945, 'characters_json', 'michel260.png');
+        this.john = this.add.sprite(590,250, 'characters_json', 'john000.png');
         this.keyboard = this.input.keyboard.addKeys('UP,DOWN,LEFT,RIGHT');
         // Hitbox de michel yea
-        this.michel.setSize(45,60);
+        this.michel.body.setSize(33, 45);
+        this.michel.body.setOffset(15, 15);
         this.michel.setCollideWorldBounds(true);
 
         //Custom Property pour le joueur 
         this.michel.memories = 0;
-
         let map = this.add.tilemap('mainMap');
         let terrain = map.addTilesetImage("terrain_atlas", "terrain");
         // CALQUE DE LA MAP
         let botLayer = map.createLayer("bot", [terrain], 0, 0).setDepth(-1);
         let topLayer = map.createLayer("top", [terrain], 0, 0);
 
+         // PORTES 
+        this.rightdoor= this.physics.add.sprite(665, 785, "terrain_sprite", "tile463.png").setScale(1.4);
+        this.rightdoor.angle = 180;
+        this.leftdoor= this.physics.add.sprite(618, 787.5, "terrain_sprite", "tile463.png").setScale(1.4);
+
+        this.leftdoor.setImmovable(true);
+        this.rightdoor.setImmovable(true);
+
+        // EVENTS SUR COLLISION A LA PORTE
+
+        function memory() {
+            if (this.michel.memories === 5 ) {
+                this.leftdoor.destroy();
+                this.rightdoor.destroy();
+            }
+        }
+        this.physics.add.collider(this.michel, this.leftdoor, memory, null, this);
         // COLLISIONS
         this.physics.add.collider(this.michel, topLayer);
         topLayer.setCollisionByProperty({collides:true});
@@ -47,6 +65,7 @@ export class GameScene extends Phaser.Scene {
                     this.scene.pause();
                     this.scene.launch('fourth_memory');
                 } else if (this.michel.memories === 4) {
+                    this.michel.memories += 1;
                     this.scene.pause();
                     this.scene.launch('fifth_memory');
                 }
@@ -71,6 +90,7 @@ export class GameScene extends Phaser.Scene {
                     this.scene.pause();
                     this.scene.launch('fourth_memory');
                 } else if (this.michel.memories === 4) {
+                    this.michel.memories += 1;
                     this.scene.pause();
                     this.scene.launch('fifth_memory');
                 }
@@ -95,6 +115,7 @@ export class GameScene extends Phaser.Scene {
                     this.scene.pause();
                     this.scene.launch('fourth_memory');
                 } else if (this.michel.memories === 4) {
+                    this.michel.memories += 1;
                     this.scene.pause();
                     this.scene.launch('fifth_memory');
                 }
@@ -119,6 +140,7 @@ export class GameScene extends Phaser.Scene {
                     this.scene.pause();
                     this.scene.launch('fourth_memory');
                 } else if (this.michel.memories === 4) {
+                    this.michel.memories += 1;
                     this.scene.pause();
                     this.scene.launch('fifth_memory');
                 }
@@ -143,17 +165,26 @@ export class GameScene extends Phaser.Scene {
                     this.scene.pause();
                     this.scene.launch('fourth_memory');
                 } else if (this.michel.memories === 4) {
+                    this.michel.memories += 1;
                     this.scene.pause();
                     this.scene.launch('fifth_memory');
                 }
                 topLayer.setTileLocationCallback(28,32, 1,1, null);
             });
         
+        // DECLENCHE LA CINEMATIQUE DE FIN
+        topLayer.setTileLocationCallback(19,11, 2,1, () => {
+            this.scene.stop('hud');
+            this.scene.start('ending');
+        });
 
         // CAMERA SUIT LE JOUEUR
         this.cameras.main.startFollow(this.michel);
         // DELIMITER LES BORDURES DU JEU PAR RAPPORT A LA MAP
         this.physics.world.setBounds(0,0, map.widthInPixels, map.heightInPixels);
+
+        // LANCEMENT DU HUD
+        this.scene.launch('hud', this.michel);
     }
 
     update(){

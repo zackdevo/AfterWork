@@ -7,7 +7,6 @@ export class MenuScene extends Phaser.Scene {
         
     }
     create() {
-
         // AFFICHAGE DU MENU APRES L'ECRAN DE CHARGEMENT
         this.add.image(0, 0, "menu_bg").setDepth(0).setOrigin(0, 0); // BACKGROUND
         this.add.image(this.game.renderer.width / 2 + 20, this.game.renderer.height / 4, "title").setDepth(1).setScale(0.9); // TITRE DU JEU
@@ -78,7 +77,6 @@ export class MenuScene extends Phaser.Scene {
         })
         // Quand on clique le bouton options
         credits_btn.on('pointerup', () => {
-            console.log('kek');
             this.scene.launch('credits');
         })
     }
